@@ -21,24 +21,23 @@ export default function App() {
   }, [query, page]);
 
   const setNewFetch = () => {
-    setIsLoading({ isLoading: true });
-    setError({ error: null });
+    setIsLoading(true);
+    setError(null);
     newSearch(query, page)
       .then((newFetchs) => setNewFetchs((prev) => [...prev, ...newFetchs]))
       .catch((error) => setError(error.message))
-      .finally(() => setIsLoading({ isLoading: false }));
+      .finally(() => setIsLoading(false));
   };
 
   const handleSearchSubmmit = (query) => {
     setQuery(query);
-    setPage({ page: 1 });
+    setPage(1);
     setNewFetchs([]);
   };
   const handlerLoadMore = () => {
     setPage((prev) => prev + 1);
   };
 
-  // console.log(this.state.newFetch);
   return (
     <SimpleReactLightbox>
       <SearchBar onSubmit={handleSearchSubmmit} />
