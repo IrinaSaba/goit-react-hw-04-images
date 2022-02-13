@@ -1,12 +1,10 @@
 import PropTypes from "prop-types";
-import { Component } from "react";
+// import { useState } from "react";
 import { SRLWrapper } from "simple-react-lightbox";
 import ImageGalleryItem from "../ImageGalleryItem/ImageGalleryItem";
 import s from './ImageGallery.module.css'
 
-class ImageGallery extends Component {
-  render() {
-    const { newFetch } = this.props;
+export default function ImageGallery({newFetch}) {
     return (
       <SRLWrapper >
         <ul className={s["ImageGallery"]}>
@@ -16,7 +14,7 @@ class ImageGallery extends Component {
         </ul>
       </SRLWrapper> 
     );
-  }
+
   
  };
  
@@ -24,4 +22,4 @@ class ImageGallery extends Component {
    newFetch: PropTypes.array,
  };
 
- export default ImageGallery;
+  
