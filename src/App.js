@@ -18,8 +18,7 @@ export default function App() {
   useEffect(() => {
     if (query === "") return;
     setNewFetch();
-  }),
-    [query, page];
+  }, [query, page]);
 
   const setNewFetch = () => {
     setIsLoading({ isLoading: true });
@@ -47,7 +46,7 @@ export default function App() {
         <p className={st["error"]}>{error}</p>
       ) : (
         <>
-          <ImageGallery newFetchs={newFetchs} />
+          <ImageGallery newFetch={newFetchs} />
           {isLoading ? (
             <div className={s["hearts"]}>
               <Hearts
